@@ -50,6 +50,11 @@ public class MemberDAOImpl implements MemberDAO {
 		jdbcTemplate.update("delete from member where number = ?", number);
 	}
 
+	@Override
+	public int deleteAll(int number) {
+		return jdbcTemplate.update("delete from member where number = ?", number);
+	}
+
 	public final class MemberDTOMapper implements RowMapper<MemberDTO> {
 		public MemberDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
 			MemberDTO memberDTO = new MemberDTO();

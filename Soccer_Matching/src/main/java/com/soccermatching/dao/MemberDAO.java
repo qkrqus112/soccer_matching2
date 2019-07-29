@@ -18,4 +18,6 @@ public interface MemberDAO {
 
 	public void delete(int number);
 
+	public int deleteAll(int number);
+
 }

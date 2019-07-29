@@ -27,7 +27,7 @@ public class MatchBoardController {
 	public List<MatchBoardDTO> getAll() {
 		return matchBoardDAO.readAll();
 	}
-	
+
 	@GetMapping("{number}")
 	public MatchBoardDTO getOne(@PathVariable("number") int number) {
 		return matchBoardDAO.read(number);
@@ -53,10 +53,16 @@ public class MatchBoardController {
 		matchBoardDAO.update(address, detailAddress, placeName, date, startTime, startTimeMinutes, endTime,
 				endTimeMinutes, gameType, gender, numberAppliable, detailInfo, x, y, number);
 	}
-	
-	@DeleteMapping("{number}")
-	public void remove(@PathVariable("number") int number) {
-		matchBoardDAO.delete(number);
+
+//	@DeleteMapping("{number}")
+//	public void remove(@PathVariable("number") int number) {
+//		matchBoardDAO.delete(number);
+//	}
+
+	@DeleteMapping(value = "{number}")
+	public int delete(@PathVariable("number") int number) {
+		System.out.println(number);
+		return matchBoardDAO.deleteAll(number);
 	}
 
 }

@@ -9,9 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.soccermatching.dao.MemberDAO;
@@ -47,9 +49,16 @@ public class MemberController {
 		memberDAO.update(password, name, gender, cphone, birthday, email, number);
 	}
 
-	@DeleteMapping("/{number}")
-	public void remove(@PathVariable("number") int number) {
-		memberDAO.delete(number);
+//	@DeleteMapping("/{number}")
+//	public void remove(@PathVariable("number") int number) {
+//		System.out.println(number);
+//		memberDAO.delete(number);
+//
+//	}
+	@DeleteMapping(value = "{number}")
+	public int delete(@PathVariable("number") int number) {
+		System.out.println(number);
+		return memberDAO.deleteAll(number);
 	}
 
 }

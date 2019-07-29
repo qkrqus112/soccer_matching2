@@ -26,7 +26,8 @@ public class MatchBoardDAOImpl implements MatchBoardDAO {
 
 	@Override
 	public MatchBoardDTO read(int number) {
-		return jdbcTemplate.queryForObject("select * from match_board where number = ?", new MatchBoardDTOMapper(), number);
+		return jdbcTemplate.queryForObject("select * from match_board where number = ?", new MatchBoardDTOMapper(),
+				number);
 	}
 
 	@Override
@@ -55,6 +56,11 @@ public class MatchBoardDAOImpl implements MatchBoardDAO {
 	@Override
 	public void delete(int number) {
 		jdbcTemplate.update("delete from match_board where number = ?", number);
+	}
+
+	@Override
+	public int deleteAll(int number) {
+		return jdbcTemplate.update("delete from match_board where number = ?", number);
 	}
 
 	public final class MatchBoardDTOMapper implements RowMapper<MatchBoardDTO> {

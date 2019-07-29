@@ -15,7 +15,7 @@ public class RootConfig {
 	private String url = "jdbc:mysql://localhost:3306/soccer_matching";
 	private String userName = "root";
 	private String password = "54321";
-		
+
 	@Bean
 	public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
@@ -23,10 +23,10 @@ public class RootConfig {
 		dataSource.setUrl(url);
 		dataSource.setUsername(userName);
 		dataSource.setPassword(password);
-		
+
 		return dataSource;
 	}
-	
+
 	@Bean
 	public JdbcTemplate jdbcTemplate(DataSource dataSource) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
